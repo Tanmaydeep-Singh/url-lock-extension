@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <h1 className="text-white">HELLO</h1>
-      <h1> Another Minor Update </h1>
+      <h1> Another Minor Update Yet Again </h1>
       {loading ? (
         <p className="text-gray-500">Loading...</p>
       ) : (
