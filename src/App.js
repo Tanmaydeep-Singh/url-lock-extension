@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
 function App() {
-  const [url, setUrl] = useState(null); // Use null or empty string for uninitialized state
-  const [loading, setLoading] = useState(true); // State to track loading status
+  const [url, setUrl] = useState(null); 
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
-    // Check if chrome.runtime is available (only in extension context)
     if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.onMessage) {
-      // Handle incoming messages from the background script
       const handleMessage = (message) => {
         if (!message || message.type !== 'FROM_BACKGROUND') {
           console.error("Invalid or unexpected message:", message);
@@ -25,7 +23,6 @@ function App() {
 
       chrome.runtime.onMessage.addListener(handleMessage);
 
-      // Cleanup the listener when the component unmounts
       return () => {
         chrome.runtime.onMessage.removeListener(handleMessage);
       };
@@ -37,6 +34,7 @@ function App() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <h1 className="text-white">HELLO</h1>
+      <h1> Minor </h1>
       {loading ? (
         <p className="text-gray-500">Loading...</p>
       ) : (
